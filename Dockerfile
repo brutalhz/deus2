@@ -30,3 +30,4 @@ RUN mkdir -p /home/$MYUSER/.composer && \
 WORKDIR /var/www
 
 USER $MYUSER
+HEALTHCHECK --interval=30s --timeout=1s --retries=3 --start-period=10s CMD curl -sS http://localhost:8000 || exit 1
